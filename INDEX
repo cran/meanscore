@@ -1,0 +1,28 @@
+This package contains 3 functions used for implementing the Mean Score method
+of Reilly & Pepe (Biometrika 1995, see full reference below) to
+estimate the coefficients in a logistic regression model from two-stage data.
+
+   1. MEANSCORE is called with the combined first- and second-stage data
+      (where the missing covariate values are represented by NA)
+   2. MS.NPREV is called with the second-stage (i.e. complete) data 
+      and the first-stage sample sizes (or prevalences). Prior to running
+      this function, the CODING function (3.) should be run to see the
+      the order in which MS.NPREV expects the first-stage sample sizes
+      or prevalences to be provided.
+   3. CODING, which recodes multiple columns of first-stage covariates into 
+      a single column and displays the coding scheme
+
+Two illustrative data sets are also provided
+
+  simNA   a simulated data set of 1000 observations, with 500 missing
+          values (represented by NA)
+ 
+  ectopic the data used in Table 3 of Reilly and Pepe (1995) 
+
+
+Help on these functions and on the illustrative data sets
+provided can be viewed using help or ? or the HTML help file system.
+
+
+Reilly,M and Pepe MS 1995. A mean score method for missing and auxiliary 
+      covariate data in regression models. Biometrika 82:299-314

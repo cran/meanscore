@@ -1,0 +1,91 @@
+The Mean Score method for missing and auxiliary covariate data
+is described in the paper by Reilly & Pepe in Biometrika (1995)
+(see full reference below). This likelihood-based method is 
+asymptotically equivalent to "hot-deck" multiple imputation
+(Reilly & Pepe, 1997). Missingness may depend on the available 
+response and covariate values but not on the unobserved covariate
+values (i.e. MAR, Missing At Random) and the method is applicable 
+to cohort or case-control designs. The subsample of subjects on whom 
+the incomplete covariate is available is referred to as the
+"validation sample" or the "second-stage sample", and the 
+remaining subjects are the "non-validation sample" 
+or the "first-stage sample" 
+
+The code provided here implements a Mean Score analysis for
+a logistic regression model where the incomplete covariate(s) 
+may be continuous, but the first stage covariates and/or 
+auxiliary variables must be categorical.
+
+
+INSTALLATION GUIDE
+The simplest installation can be done by unzipping
+the BINARY package directly to R_HOME/library
+(note you can't do this with the source file).
+
+For users familiar with building R packages, the
+following command can be used to install the package
+(you need to have perl installed):
+
+`make BUILD=option pkg-meanscore' 
+
+executed from R_HOME/src/gnuwin32, after you have unzipped
+this package to R_HOME/src/library. 
+
+Alternatively you can use the UNIX command:
+
+`Rcmd install meanscore'
+
+executed from R_HOME/src/library
+
+
+After you have installed the package, the command 
+> library(meanscore)
+makes available the following 3 functions:
+   1. MEANSCORE: this function is called with the combined first- 
+      and second-stage data where the missing values in the 
+      incomplete covariate(s) are represented by NA, the usual
+      notation in Splus/R.
+   2. MS.NPREV: this function is called with the second-stage 
+      (i.e. complete) data and the first-stage sample sizes 
+      (or prevalences): if only prevalences are available, 
+      then estimates are provided but no standard errors.
+      Prior to running this function, the CODING function (3.) 
+      should be run to see the order in which MS.NPREV expects
+      the first-stage sample sizes or prevalences to be provided.
+   3. CODING: this function recodes multiple columns of first-stage
+      covariates into a single vector and displays the coding scheme
+
+
+Help on these functions and on the illustrative data sets
+provided can be viewed using help or ? or the HTML help file system.
+
+This code has only been tested under R 1.2.0 for Windows, 
+and may need some modifications for use with other 
+versions or other operating systems.
+
+We would be happy to hear about any bugs that you find, and to
+receive any comments or suggestions for improvements.
+
+
+Marie Reilly PhD.		&		Agus Salim
+Dept. of Epidemiology 				Dept. of Statistics
+University College Cork,			University College Cork,			
+Ireland						Ireland
+E-mail: marie.reilly@ucc.ie			a.salim@ucc.ie
+
+
+REFERENCES
+
+	Reilly,M and Pepe MS 1995. A mean score method for 
+		missing and auxiliary covariate data in 
+		regression models. Biometrika 82:299-314
+
+	
+	Reilly M and Pepe MS 1997. The relationship between 
+		hot-deck multiple imputation and weighted 
+                likelihood. Statistics in Medicine,16,5-19.
+
+
+------------------------------------------------------------------
+This software may be freely used for non-commercial purposes
+ and freely distributed.
