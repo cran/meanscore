@@ -98,7 +98,7 @@ x           1.0188437 0.10187094 10.0013188 0.0000000
 \dontrun{If you extract the complete cases (n=500) to a matrix called
 "complete", using}
 
-complete_simNA[!is.na(simNA[,3]),]
+complete=simNA[!is.na(simNA[,3]),]
 
 \dontrun{then} 
 summary(glm(complete[,1]~complete[,3], family="binomial"))
@@ -136,11 +136,11 @@ data(ectopic)
 of Reilly & Pepe (1995)}
 
 # use gonnorhoea, contracept and sexpatr as auxiliary variables
-ectopic.z_ectopic[,3:5]
+ectopic.z=ectopic[,3:5]
 
 # the auxiliary variables defined above and the chlamydia antibody status 
 # are the predictor variables in the logistic regression model		
-ectopic.x_ectopic[,2:5]    
+ectopic.x=ectopic[,2:5]    
 
 meanscore(x=ectopic.x,z=ectopic.z,y=ectopic[,1])
 

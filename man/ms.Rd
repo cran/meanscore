@@ -135,7 +135,7 @@ help(simNA)        #for details
 
 \dontrun{The "complete cases" (i.e. second-stage data) can be extracted by:}
 
-complete_simNA[!is.na(simNA[,3]),]
+complete=simNA[!is.na(simNA[,3]),]
 
 \dontrun{Running a logistic regression analysis on the complete data:}
 
@@ -171,7 +171,7 @@ coding(x=simNA[,3], y=simNA[,1], z=simNA[,2])
 \dontrun{An analysis of all first- and second-stage data using Mean Score:}
 
 # supply the first stage sample sizes in the correct order
-n1_c(310,166,177,347)
+n1=c(310,166,177,347)
 ms.nprev(x=complete[,3],z=complete[,2],y=complete[,1],n1=n1)
 
 \dontrun{gives the results:
@@ -199,7 +199,7 @@ x           1.0188437 0.10187094 10.0013188 0.0000000
 }
 
 \dontrun{If we supply the prevalances instead of first stage sample sizes}
-p1_c(310,166,177,347)/1000
+p1=c(310,166,177,347)/1000
 ms.nprev(x=complete[,3],z=complete[,2],y=complete[,1],prev=p1)
 
 \dontrun{we get the output:

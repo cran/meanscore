@@ -14,12 +14,12 @@
 
 # @@@@@@@@@@@@@@@@@@@@@@@   MEANSCORE    @@@@@@@@@@@@@@@@@@@@@@@@@
 
-meanscore<-function(x="matrix of covariates",y=y,z=z,factor=NULL,print.all=FALSE)
+meanscore=function(x="matrix of covariates",y=y,z=z,factor=NULL,print.all=FALSE)
 {	
 
-	stop1<-c("ARE NOT FOUND PLEASE CHECK COL NAMES OR ENTER COL NUMBER IN THE PREDICTOR MATRIX")
-	code<-coding(x=x,y=y,z=z,return=TRUE)
-        z<-code$z
+	stop1=c("ARE NOT FOUND PLEASE CHECK COL NAMES OR ENTER COL NUMBER IN THE PREDICTOR MATRIX")
+	code=coding(x=x,y=y,z=z,return=TRUE)
+      z=code$z
         
 	data<-data.frame(y,z,x)
 	n1<-c(t(table(y,z)))
@@ -55,34 +55,34 @@ meanscore<-function(x="matrix of covariates",y=y,z=z,factor=NULL,print.all=FALSE
 		
 		if(is.character(factor)) {
 		   for (i in 1:length(factor)) {
-			ind<-ifelse(colnames(rdata)==factor[i],1,0)
+			ind=ifelse(colnames(rdata)==factor[i],1,0)
 			if (sum(ind)==0) {
 			 stop(paste(factor[i],stop1),call.=FALSE)
 			 	}	
-			varpost<-order(ind)[ncol(rdata)]
-			ff<-factor(rdata[,varpost])
-			factlev<-levels(ff)
-			dummy<-as.data.frame(model.matrix(~ ff - 1)[,-1])
-			colnames(dummy)<-paste(colnames(rdata)[varpost], factlev[-1], sep = "")
-			rdata<-rdata[,-varpost]
-			rdata<-cbind(rdata,dummy)
+			varpost=order(ind)[ncol(rdata)]
+			ff=factor(rdata[,varpost])
+			factlev=levels(ff)
+			dummy=as.data.frame(model.matrix(~ ff - 1)[,-1])
+			colnames(dummy)=paste(colnames(rdata)[varpost], factlev[-1], sep = "")
+			rdata=rdata[,-varpost]
+			rdata=cbind(rdata,dummy)
 			
 			}
 		    }
 
 		else if (is.numeric(factor)){
-		  varpost<-factor+1
-		  ind<-ifelse(varpost>ncol(rdata),1,0)
+		  varpost=factor+1
+		  ind=ifelse(varpost>ncol(rdata),1,0)
 		  if (sum(ind)>0) {
 			stop("COLUMN NUMBER OF FACTOR VARIABLES IS OUT OF BOUND,PLEASE CHECK!")			  	}
 		
 		  for (i in 1:length(factor)) {
-			ff<-factor(rdata[,varpost[i]])
-			factlev<-levels(ff)
-			dummy<-as.data.frame(model.matrix(~ ff - 1)[,-1])
-			colnames(dummy)<-paste(colnames(rdata)[varpost[i]], factlev[-1], sep = "")
-			rdata<-rdata[,-varpost[i]]
-			rdata<-cbind(rdata,dummy)
+			ff=factor(rdata[,varpost[i]])
+			factlev=levels(ff)
+			dummy=as.data.frame(model.matrix(~ ff - 1)[,-1])
+			colnames(dummy)=paste(colnames(rdata)[varpost[i]], factlev[-1], sep = "")
+			rdata=rdata[,-varpost[i]]
+			rdata=cbind(rdata,dummy)
 			
 			}
 		    }
@@ -135,7 +135,7 @@ meanscore<-function(x="matrix of covariates",y=y,z=z,factor=NULL,print.all=FALSE
 
 #   @@@@@@@@@@@@@@@@@@@@@@@@@   MS.NPREV  FUNCTION  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #
-"ms.nprev"<-function(x="matrix of covariates",y=y,z=z,n1="option",prev="option",factor=NULL,print.all=FALSE)
+"ms.nprev"=function(x="matrix of covariates",y=y,z=z,n1="option",prev="option",factor=NULL,print.all=FALSE)
 {
 # this function uses the second-stage (i.e. complete ) data and the first-stage
 # sample sizes (or prevalences) to compute Mean Score estimates of the coefficients
@@ -175,11 +175,11 @@ print("please run coding function to see the order in which you")
 print("must supply the first-stage sample sizes or prevalences")
 print (" Type ?coding for details!")
 
-stop1<-c("ARE NOT FOUND PLEASE CHECK COL NAMES OR ENTER COL NUMBER IN THE PREDICTOR MATRIX")         
-	z1<-data.frame(z)
-        z.old<-as.matrix(z) 
+stop1=c("ARE NOT FOUND PLEASE CHECK COL NAMES OR ENTER COL NUMBER IN THE PREDICTOR MATRIX")         
+	z1=data.frame(z)
+        z.old=as.matrix(z) 
 
-        z<-coding(x=x,y=y,z=z,return=TRUE)$z
+        z=coding(x=x,y=y,z=z,return=TRUE)$z
   
         ylev<-as.numeric(levels(factor(y)))
 	zlev<-as.numeric(levels(factor(z)))
@@ -208,34 +208,34 @@ if (prev[1]!="option")
 		
 		if(is.character(factor)) {
 		   for (i in 1:length(factor)) {
-			ind<-ifelse(colnames(rdata)==factor[i],1,0)
+			ind=ifelse(colnames(rdata)==factor[i],1,0)
 			if (sum(ind)==0) {
 			 stop(paste(factor[i],stop1),call.=FALSE)
 			 	}	
-			varpost<-order(ind)[ncol(rdata)]
-			ff<-factor(rdata[,varpost])
-			factlev<-levels(ff)
-			dummy<-as.data.frame(model.matrix(~ ff - 1)[,-1])
-			colnames(dummy)<-paste(colnames(rdata)[varpost], factlev[-1], sep = "")
-			rdata<-rdata[,-varpost]
-			rdata<-cbind(rdata,dummy)
+			varpost=order(ind)[ncol(rdata)]
+			ff=factor(rdata[,varpost])
+			factlev=levels(ff)
+			dummy=as.data.frame(model.matrix(~ ff - 1)[,-1])
+			colnames(dummy)=paste(colnames(rdata)[varpost], factlev[-1], sep = "")
+			rdata=rdata[,-varpost]
+			rdata=cbind(rdata,dummy)
 			
 			}
 		    }
 
 		else if (is.numeric(factor)){
-		  varpost<-factor+1
-		  ind<-ifelse(varpost>ncol(rdata),1,0)
+		  varpost=factor+1
+		  ind=ifelse(varpost>ncol(rdata),1,0)
 		  if (sum(ind)>0) {
 			stop("COLUMN NUMBER OF FACTOR VARIABLES IS OUT OF BOUND,PLEASE CHECK!")			  	}
 		
 		  for (i in 1:length(factor)) {
-			ff<-factor(rdata[,varpost[i]])
-			factlev<-levels(ff)
-			dummy<-as.data.frame(model.matrix(~ ff - 1)[,-1])
-			colnames(dummy)<-paste(colnames(rdata)[varpost[i]], factlev[-1], sep = "")
-			rdata<-rdata[,-varpost[i]]
-			rdata<-cbind(rdata,dummy)
+			ff=factor(rdata[,varpost[i]])
+			factlev=levels(ff)
+			dummy=as.data.frame(model.matrix(~ ff - 1)[,-1])
+			colnames(dummy)=paste(colnames(rdata)[varpost[i]], factlev[-1], sep = "")
+			rdata=rdata[,-varpost[i]]
+			rdata=cbind(rdata,dummy)
 			
 			}
 		    }
@@ -284,34 +284,34 @@ else
 		
 		if(is.character(factor)) {
 		   for (i in 1:length(factor)) {
-			ind<-ifelse(colnames(rdata)==factor[i],1,0)
+			ind=ifelse(colnames(rdata)==factor[i],1,0)
 			if (sum(ind)==0) {
 			 stop(paste(factor[i],stop1),call.=FALSE)
 			 	}	
-			varpost<-order(ind)[ncol(rdata)]
-			ff<-factor(rdata[,varpost])
-			factlev<-levels(ff)
-			dummy<-as.data.frame(model.matrix(~ ff - 1)[,-1])
-			colnames(dummy)<-paste(colnames(rdata)[varpost], factlev[-1], sep = "")
-			rdata<-rdata[,-varpost]
-			rdata<-cbind(rdata,dummy)
+			varpost=order(ind)[ncol(rdata)]
+			ff=factor(rdata[,varpost])
+			factlev=levels(ff)
+			dummy=as.data.frame(model.matrix(~ ff - 1)[,-1])
+			colnames(dummy)=paste(colnames(rdata)[varpost], factlev[-1], sep = "")
+			rdata=rdata[,-varpost]
+			rdata=cbind(rdata,dummy)
 			
 			}
 		    }
 
 		else if (is.numeric(factor)){
-		  varpost<-factor+1
-		  ind<-ifelse(varpost>ncol(rdata),1,0)
+		  varpost=factor+1
+		  ind=ifelse(varpost>ncol(rdata),1,0)
 		  if (sum(ind)>0) {
 			stop("COLUMN NUMBER OF FACTOR VARIABLES IS OUT OF BOUND,PLEASE CHECK!")			  	}
 		
 		  for (i in 1:length(factor)) {
-			ff<-factor(rdata[,varpost[i]])
-			factlev<-levels(ff)
-			dummy<-as.data.frame(model.matrix(~ ff - 1)[,-1])
-			colnames(dummy)<-paste(colnames(rdata)[varpost[i]], factlev[-1], sep = "")
-			rdata<-rdata[,-varpost[i]]
-			rdata<-cbind(rdata,dummy)
+			ff=factor(rdata[,varpost[i]])
+			factlev=levels(ff)
+			dummy=as.data.frame(model.matrix(~ ff - 1)[,-1])
+			colnames(dummy)=paste(colnames(rdata)[varpost[i]], factlev[-1], sep = "")
+			rdata=rdata[,-varpost[i]]
+			rdata=cbind(rdata,dummy)
 			
 			}
 		    }
@@ -361,7 +361,7 @@ else
 
 # @@@@@@@@@@@@@@@@@@@@@@@     CODING FUNCTION @@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-coding<-function(x=x,y=y,z=z,return=FALSE)
+coding=function(x=x,y=y,z=z,return=FALSE)
 ### This function is used to combine multiple columns of z into one column
 ### If used with combined first and second stage data (i.e. with NA for missing
 ### values), it will return sample sizes for the first and second stage 
@@ -372,15 +372,15 @@ coding<-function(x=x,y=y,z=z,return=FALSE)
 ### to ms.nprev expects the first-stage sample sizes to be provided.
 {
 
-z1<-data.frame(z)
+z1=data.frame(z)
 
 #	for (i in 1:ncol(z1)) {
 #		if(!is.numeric(z1[,i])) {
-#			z1[,i]<-codes(factor(z1[,i]))
+#			z1[,i]=codes(factor(z1[,i]))
 #		}
 #	}
 
-z.old<-as.matrix(z)
+z.old=as.matrix(z)
 
   if (ncol(z1)>1){
   ncz<-ncol(z1)
@@ -401,24 +401,24 @@ z.old<-as.matrix(z)
 	nlev<-length(as.numeric(levels(nz)))
 	levels(nz)<-c(1:nlev)
 	list(nz=as.numeric(nz),z=z1)
-        z<-as.numeric(nz)}
-        levels(z)<-1:length(levels(as.factor(z))) 
+        z=as.numeric(nz)}
+        levels(z)=1:length(levels(as.factor(z))) 
         
 ########  now prepare levels of new Z for printing        
-        id<-1:length(z)
-        index<-NULL
-        nlev<-length(levels(as.factor(z))) 
+        id=1:length(z)
+        index=NULL
+        nlev=length(levels(as.factor(z))) 
        
         for (i in 1:nlev){ 
             if (ncol(z1)>1){
-            id1<-id[z==levels(z)[i]]
-            id1<-sample(id1,1)
-            index<-c(index,id1)}
+            id1=id[z==levels(z)[i]]
+            id1=sample(id1,1)
+            index=c(index,id1)}
             
             else {
-            id1<-id[z==levels(as.factor(z))[i]]
-            id1<-sample(id1,1)
-            index<-c(index,id1)}
+            id1=id[z==levels(as.factor(z))[i]]
+            id1=sample(id1,1)
+            index=c(index,id1)}
         }
 
         data<-data.frame(y,z,x)
@@ -430,12 +430,12 @@ z.old<-as.matrix(z)
 	zlev<-as.numeric(levels(factor(z)))
 	ylevel<-rep(ylev,rep(length(zlev),length(ylev)))
 	zlevel<-rep(zlev,length(ylev))
-        index<-rep(index,length(ylev))         
+        index=rep(index,length(ylev))         
 
 ### now label the columns of z for printing
 
         if (is.null(colnames(z.old)))
-        colnames(z.old)<-paste("z",1:ncol(z.old),sep="") 
+        colnames(z.old)=paste("z",1:ncol(z.old),sep="") 
 
         if (ncol(z1)>1){
            if (sum(n1==n2)<length(n1)){ 

@@ -1,8 +1,8 @@
 coding                  combines two or more surrogate/auxiliary
                         variables into a vector
 ectopic                 The Ectopic Pregnancy Dataset
-meanscore               Mean Score Method for Missing Covariate Data in
-                        Logistic Regression Models
+meanscore               Mean Score Method for Missing Covariate Data
+                        in Logistic Regression Models
 ms.nprev                Logistic regression of two-stage data using
                         second stage sample and first stage sample
                         sizes or proportions (prevalences) as input
