@@ -1,6 +1,6 @@
 Package: meanscore
-Version: 1.0-3
-Date: 2001/04/29	
+Version: 1.0-4
+Date: 2001/08/30	
 Title: Meanscore method for missing covariate data in logistic regression models
 Author: Marie Reilly PhD <marie.reilly@ucc.ie> and Agus Salim <agus@stat.ucc.ie>
 Maintainer: Agus Salim <agus@stat.ucc.ie>
