@@ -1,10 +1,10 @@
 Package: meanscore
-Version: 1.0-1
-Date: 2001/03/04	
+Version: 1.0-2
+Date: 2001/05/15	
 Title: Meanscore method for missing covariate data in logistic regression models
-Author: Marie Reilly PhD <marie.reilly@ucc.ie> and Agus Salim <a.salim@ucc.ie>
-Maintainer: Agus Salim <a.salim@ucc.ie>
-Depends: R (>=1.2.0) 
+Author: Marie Reilly PhD <marie.reilly@ucc.ie> and Agus Salim <agus@stat.ucc.ie>
+Maintainer: Agus Salim <agus@stat.ucc.ie>
+Depends: R (>= 1.2.0) 
 Description: The Mean Score method for missing and auxiliary covariate data 
 	is described in the paper by Reilly & Pepe in Biometrika 1995. 
 	This likelihood-based method allows an analysis using all available

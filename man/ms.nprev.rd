@@ -235,7 +235,7 @@ incomplete cases.}
 		regression models. \emph{Biometrika} \bold{82:}299-314
 }
 	
-\keyword{regression,missing data}
+\keyword{regression}
 
 
 	

@@ -153,5 +153,5 @@ Reilly,M and M.S. Pepe. 1995. A mean score method for missing and auxiliary \cr
              covariate data in regression models. \emph{Biometrika} \bold{82:}299-314
 }
 
-\keyword{regression,missing data}
+\keyword{regression}
 	
