@@ -5,22 +5,26 @@
 Weighted logistic regression using the Mean Score method}
 
 \usage{
-	meanscore(y=y,x=x,z=z,factor=NULL,print.all=FALSE)
+	meanscore(x=x,y=y,z=z,factor=NULL,print.all=FALSE)
 }
 
 
 
 \arguments{
 
-\item{y}{response variable (binary 0-1)}
 \item{x}{matrix of predictor variables, one column
 	  of which contains some missing values (NA)}
+\item{y}{response variable (binary 0-1)}
 \item{z}{matrix of the surrogate or auxiliary variables 
-          which must be categorical}
+          which must be categorical \cr
 	  
-\item{factor}{\bold{optional }factor variables; if the columns of the matrix of
+OPTIONAL ARGUMENTS}
+
+\item{print.all}{logical value determining all output to be printed. 
+		 The default is False (F).} 
+\item{factor}{factor variables; if the columns of the matrix of
 	  predictor variables have names, supply these names, 
-	  otherwise supply the column numbers. MEANSCORE will fit 
+	  otherwise supply the column numbers. MS.NPREV will fit 
 	  separate coefficients for each level of the factor variables.}
 }
 \value{

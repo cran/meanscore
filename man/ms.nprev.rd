@@ -21,14 +21,14 @@ advisable to first run the \code{\link[meanscore]{coding}} function.
 
 \usage{
 
-ms.nprev(y=y,x=x,z=z,n1="option",prev="option",factor=NULL,print.all=FALSE)
+ms.nprev(x=x,y=y,z=z,n1="option",prev="option",factor=NULL,print.all=FALSE)
 }
 
 \arguments{
 
 REQUIRED ARGUMENTS
-\item{y}{response variable (should be binary 0-1)}
 \item{x}{matrix of predictor variables for regression model} 
+\item{y}{response variable (should be binary 0-1)}
 \item{z}{matrix of any surrogate or auxiliary variables which must be categorical , \cr 
 
 and one of the following:}

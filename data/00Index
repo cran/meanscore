@@ -1,2 +1,3 @@
-simNA		simulated dataset 
-ectopic		ectopic pregnancy dataset 
+ectopic                  The Ectopic Pregnancy Dataset
+simNA                    Simulated dataset for illustrating the meanscore
+                         function

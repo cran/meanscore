@@ -14,7 +14,7 @@
 
 # @@@@@@@@@@@@@@@@@@@@@@@   MEANSCORE    @@@@@@@@@@@@@@@@@@@@@@@@@
 
-meanscore_function(x="matrix of covariates",z=z,y=y,factor=NULL,print.all=F)
+meanscore_function(x="matrix of covariates",y=y,z=z,factor=NULL,print.all=FALSE)
 {	
 
 	stop1_c("ARE NOT FOUND PLEASE CHECK COL NAMES OR ENTER COL NUMBER IN THE PREDICTOR MATRIX")
@@ -135,7 +135,7 @@ meanscore_function(x="matrix of covariates",z=z,y=y,factor=NULL,print.all=F)
 
 #   @@@@@@@@@@@@@@@@@@@@@@@@@   MS.NPREV  FUNCTION  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #
-"ms.nprev"_function(x="complete data",z=z,y=y,n1="option",prev="option",factor=NULL,print.all=F)
+"ms.nprev"_function(x="matrix of covariates",y=y,z=z,n1="option",prev="option",factor=NULL,print.all=FALSE)
 {
 # this function uses the second-stage (i.e. complete ) data and the first-stage
 # sample sizes (or prevalences) to compute Mean Score estimates of the coefficients
@@ -361,7 +361,7 @@ else
 
 # @@@@@@@@@@@@@@@@@@@@@@@     CODING FUNCTION @@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-coding_function(x=x,y=y,z=z,return=F)
+coding_function(x=x,y=y,z=z,return=FALSE)
 ### This function is used to combine multiple columns of z into one column
 ### If used with combined first and second stage data (i.e. with NA for missing
 ### values), it will return sample sizes for the first and second stage 
